@@ -1,0 +1,112 @@
+/* Import variables */
+@import url('../styles/variables.css');
+
+
+.top-bar {
+  height: var(--top-bar-height);
+  background: rgba(18, 18, 18, 0.6); /* More transparent */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0 24px;
+  display: flex;
+  position: absolute; /* Make it stick to the top */
+  top: 0;
+  right: 0;
+  bottom: var(--top-bar-height);
+  /* left: 0; */
+  z-index: 10;
+  width: 100%;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.top-bar-spacer {
+  flex-grow: 1; /* Pushes auth buttons to the right */
+}
+
+.auth-buttons,
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Reduced gap */
+}
+
+/* Secondary button style */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-tertiary);
+  padding: 6px 14px; /* Smaller size */
+  border: 1px solid transparent;
+  border-radius: 500px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.85rem; /* Smaller font */
+}
+
+.btn-secondary:hover {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Primary login button override */
+.login-btn.btn-primary {
+  background-color: var(--accent-color);
+  color: var(--background-darker);
+  padding: 6px 16px; /* Smaller size */
+  font-size: 0.85rem; /* Smaller font */
+  font-weight: 600;
+  border: none;
+}
+
+.login-btn.btn-primary:hover {
+  background-color: var(--accent-color);
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.profile-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  background-color: rgba(0, 0, 0, 0.4); /* More transparent */
+  /* padding: 4px 10px 4px 4px; Smaller size */
+  border-radius: 500px;
+  transition: all 0.2s ease;
+}
+
+.profile-link:hover {
+  background-color: var(--background-light);
+}
+
+.profile-link svg {
+  color: var(--text-secondary);
+}
+
+.logout-btn {
+  margin-left: 5px; /* Space between profile icon and logout */
+}
+
+/* Temp login button style */
+.temp-login-btn {
+  margin-right: 15px; /* Space it out */
+}
+
+/* Accent color usage */
+.profile-link:hover svg {
+  color: var(--accent-color);
+}
+
+/* Special accent for secondary button on hover */
+.btn-secondary:hover {
+  color: var(--accent-color);
+}
+
+/* Keep logout button simple */
+.logout-btn:hover {
+  /* border: none; Override orange border for logout */
+  background-color: rgba(255, 0, 0, 0.1);
+  color: #ff5555; /* White text on hover */
+} 

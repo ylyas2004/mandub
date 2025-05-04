@@ -1,0 +1,86 @@
+.home-page {
+  padding: 20px;
+}
+
+.home-page h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.manga-row-section {
+    margin-bottom: 40px;
+}
+
+.manga-row-section h2 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+    /* Optional: Add link to view all */
+}
+
+.manga-row {
+    display: grid;
+    /* Adjust grid columns for horizontal scrolling effect */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 25px;
+    /* If you want horizontal scroll instead:
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    padding-bottom: 10px; // Space for scrollbar
+    */
+}
+
+/* Customize home page cards if needed */
+.home-card {
+    /* Using same style as manga list page for consistency */
+    /* No special styles needed since we're matching the manga list page */
+}
+
+/* Loading animation */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--accent-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Media queries to match manga list page */
+@media (max-width: 768px) {
+  .manga-row {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .manga-row {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+  }
+}
+
+/* Hide scrollbar visually (optional) */
+.manga-row::-webkit-scrollbar {
+  /* display: none; */ /* Uncomment for horizontal scroll */
+  height: 8px;
+}
+
+.manga-row::-webkit-scrollbar-thumb {
+   /* background-color: #535353; */ /* Uncomment for horizontal scroll */
+   /* border-radius: 4px; */
+} 

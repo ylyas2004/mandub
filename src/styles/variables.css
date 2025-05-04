@@ -1,0 +1,30 @@
+:root {
+  /* Main accent color - change this ONE variable to update all accent colors */
+  --accent-color: #00fff2;
+  
+  /* Theme colors */
+  --background-dark: #121212;
+  --background-darker: #000000;
+  --background-light: #282828;
+  --text-primary: #FFFFFF;
+  --text-secondary: #b3b3b3;
+  --text-tertiary: #a7a7a7;
+  --background-color: #f8f9fa; /* Light Gray */
+  --text-color: #212529; /* Dark Gray */
+  --progress-bar-background: #e9ecef; /* Lighter Gray */
+  
+  /* Loading indicators */
+  --loading-spinner-color: var(--accent-color);
+  --loading-spinner-size: 40px;
+  --loading-spinner-border: 4px;
+  --progress-bar-color: var(--accent-color);
+  
+  /* Component specific */
+  --sidebar-width: 240px;
+  --sidebar-collapsed-width: 50px;
+  --top-bar-height: 60px;
+  --media-player-height: 95px;
+  
+  /* Transitions */
+  --transition-speed: 0.3s;
+} 

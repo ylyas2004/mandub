@@ -1,0 +1,290 @@
+/* Import variables */
+@import url('../styles/variables.css');
+
+.media-player {
+  height: var(--media-player-height);
+  /* Enhanced Blurred Background */
+  background-color: rgba(24, 24, 24, 0.85);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-secondary);
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 100;
+  /* Transition for visibility */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  /* Make sure it doesn't block content when hidden */
+  bottom: 0;
+  left: 0;
+  padding: 0 10px;
+}
+
+.media-player.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Left: Manga Info */
+.media-player-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 0;
+  max-width: 30%;
+}
+
+.player-manga-cover {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.player-manga-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+  /* Hide overflowing text */
+}
+
+.player-manga-title,
+.player-manga-chapter,
+.player-manga-author {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-manga-title {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.player-manga-chapter {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Center: Controls */
+.media-player-controls {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.player-controls-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.player-progress {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+}
+
+.progress-time {
+  font-size: 0.75rem;
+  min-width: 40px;
+  color: var(--text-tertiary);
+}
+
+.progress-bar-container {
+  flex: 1;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: height 0.2s ease;
+}
+
+.progress-bar:hover {
+  height: 6px;
+}
+
+.progress-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
+.progress-bar-handle {
+  position: absolute;
+  top: 50%;
+  left: calc(30% - 6px);
+  width: 12px;
+  height: 12px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.progress-bar:hover .progress-bar-handle {
+  opacity: 1;
+}
+
+/* Right: Author/Options */
+.media-player-options {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  max-width: 30%;
+}
+
+.player-manga-author {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-right: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.player-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Media Player Buttons */
+.control-button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 8px;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-button:hover {
+  color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Smaller seek buttons */
+.seek-button {
+  width: 36px;
+  height: 36px;
+  font-size: 0.9rem;
+}
+
+/* Larger Play/Pause button */
+.play-pause-button {
+  background-color: var(--text-primary);
+  color: var(--background-darker);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+.play-pause-button:hover {
+  transform: scale(1.05);
+  background-color: var(--accent-color);
+  color: #000;
+}
+
+/* Accent color on hover for other buttons */
+.control-button:not(.play-pause-button):hover {
+  color: var(--accent-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .media-player {
+    padding: 0 5px;
+  }
+  
+  .player-manga-cover {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .player-manga-author {
+    display: none;
+  }
+  
+  .progress-time {
+    font-size: 0.7rem;
+    min-width: 35px;
+  }
+  
+  .control-button {
+    padding: 6px;
+  }
+  
+  .seek-button {
+    /* display: none; */
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .player-manga-cover {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .player-manga-details {
+    max-width: 80px;
+  }
+  
+  .player-manga-title {
+    font-size: 0.8rem;
+  }
+  
+  .player-manga-chapter {
+    font-size: 0.7rem;
+  }
+  
+  .progress-time {
+    min-width: 30px;
+  }
+}

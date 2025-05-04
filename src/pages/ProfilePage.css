@@ -1,0 +1,256 @@
+@import url('../styles/variables.css');
+
+.profile-page {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.profile-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  margin-bottom: 40px;
+  background-color: rgba(30, 30, 30, 0.5);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--accent-color);
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-name-container {
+  flex: 1;
+}
+
+.profile-name-container h1 {
+  margin: 0 0 16px 0;
+  font-size: 1.8rem;
+  color: var(--text-primary);
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile-info {
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.profile-bio {
+  font-style: italic;
+  margin-top: 10px;
+  padding-left: 8px;
+  border-left: 2px solid var(--accent-color);
+}
+
+.edit-profile-btn {
+  align-self: flex-start;
+  margin-top: 16px;
+}
+
+/* Profile edit form */
+.profile-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group textarea {
+  background-color: rgba(20, 20, 20, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 10px;
+  color: var(--text-primary);
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 1px var(--accent-color);
+}
+
+.profile-edit-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: flex-end;
+}
+
+/* Tabs */
+.profile-tabs {
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 30px;
+  gap: 10px;
+}
+
+.profile-tab {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.profile-tab:hover {
+  color: var(--text-primary);
+}
+
+.profile-tab.active {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+/* Content */
+.profile-content {
+  min-height: 400px;
+}
+
+.profile-content h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.empty-list-message {
+  color: var(--text-tertiary);
+  font-style: italic;
+  text-align: center;
+  padding: 40px;
+}
+
+/* Manga grid */
+.manga-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.profile-manga-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: rgba(30, 30, 30, 0.5);
+  border-radius: 8px;
+  padding: 15px;
+  transition: all 0.2s;
+}
+
+.profile-manga-card:hover {
+  transform: scale(1.02);
+  background-color: rgba(40, 40, 40, 0.6);
+}
+
+.profile-manga-cover {
+  width: 60px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.profile-manga-info {
+  flex: 1;
+}
+
+.profile-manga-info h4 {
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.profile-manga-info p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Action buttons */
+.btn-primary {
+  background-color: var(--accent-color);
+  color: var(--background-darker);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-tertiary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .profile-edit-form {
+    margin: 0 auto;
+  }
+  
+  .profile-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 5px;
+  }
+  
+  .manga-list-grid {
+    grid-template-columns: 1fr;
+  }
+} 
